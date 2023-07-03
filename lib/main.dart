@@ -1,9 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:music_app/screens/signup.dart';
+import 'package:music_app/screens/homepage.dart';
+import 'package:music_app/screens/signup/signupemail/email.dart';
+import 'package:music_app/screens/signup/signup.dart';
 import 'screens/splash_screen.dart';
 import 'screens/welcome.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -22,7 +27,9 @@ class MyApp extends StatelessWidget {
       routes: {
         'splash' :(context) =>SplashScreen(),
         'welcome' :(context) =>WelcomeScreen() ,
-        'signup':(context)=> SignUp()
+        'signup':(context)=> SignUp(),
+        'emailsignup':(context) => EmailSignup(),
+        'home':(context)=>HomePage(),
       },
       
     );
