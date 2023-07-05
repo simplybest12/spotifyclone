@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/AuthServices/services.dart';
 import 'package:music_app/screens/homepage.dart';
+import 'package:music_app/screens/login/forgotpass.dart';
 import 'package:music_app/screens/phonescreen/mob.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
@@ -34,12 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontSize: 25,
                   letterSpacing: 0.5),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -49,32 +50,36 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.only(left: 30),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.mail,
                       color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 30,
                     ),
                     SocialLoginButton(
                         textColor: Colors.white,
                         borderRadius: 32,
                         backgroundColor: Colors.transparent,
-                        text: "Sign In with email",
+                        text: "Continue with email",
                         buttonType: SocialLoginButtonType.generalLogin,
                         onPressed: () async {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => LoginWithEmail())));
+                                  builder: ((context) =>
+                                      const LoginWithEmail())));
                         }),
                   ],
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -84,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.only(left: 30),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.phone_iphone,
                       color: Colors.white,
                     ),
@@ -92,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         textColor: Colors.white,
                         borderRadius: 32,
                         backgroundColor: Colors.transparent,
-                        text: "Sign In with phone number",
+                        text: "Continue with phone number",
                         buttonType: SocialLoginButtonType.generalLogin,
                         onPressed: () {
                           Navigator.push(
@@ -104,12 +109,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -117,10 +122,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(32)),
               child: SocialLoginButton(
                   height: 48,
-                  width: 290,
+                  width: 350,
                   textColor: Colors.white,
                   borderRadius: 32,
-                  text: "Sign In with Google",
+                  text: "Continue with Google",
                   backgroundColor: Colors.transparent,
                   imageWidth: 25,
                   buttonType: SocialLoginButtonType.google,
@@ -140,12 +145,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     });
                   }),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -153,9 +158,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.circular(32)),
               child: SocialLoginButton(
                   height: 48,
-                  width: 290,
-                  text: "Sign In with facebook",
+                  width: 350,
+                  text: "Continue with facebook",
                   borderRadius: 32,
+                  textColor: Colors.black,
                   backgroundColor: Pallete.spotifygreen,
                   imageWidth: 25,
                   buttonType: SocialLoginButtonType.facebook,
@@ -192,7 +198,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
       backgroundColor: Pallete.backgroundcolor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -201,7 +207,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -218,7 +224,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
@@ -235,7 +241,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
@@ -252,7 +258,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
@@ -266,21 +272,43 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                     child: TextFormField(
                       decoration: InputDecoration(
                         suffixIconColor: Colors.white,
-                                              suffixIcon: InkWell(
-                          onTap: () {
-                            toggleicon();
-                          },
-                          child: isPressed?
-                          Icon(CupertinoIcons.eye_slash_fill):
-                          Icon(Icons.remove_red_eye_outlined)),
+                        suffixIcon: InkWell(
+                            onTap: () {
+                              toggleicon();
+                            },
+                            child: isPressed
+                                ? const Icon(CupertinoIcons.eye_slash_fill)
+                                : const Icon(Icons.remove_red_eye_outlined)),
                       ),
-                      obscureText: isPressed?true:false,
+                      obscureText: isPressed ? true : false,
                       controller: passtext,
                       style: GoogleFonts.lato(color: Colors.white),
                     ),
                   ),
                 ),
                 SizedBox(
+                  height: 6,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ForgotPassword()));
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        "Forgot Password?",
+                        style: GoogleFonts.lato(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
                   height: 50,
                 ),
                 Container(
@@ -292,8 +320,10 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                           isLoad = true;
                         });
                         if (emailtext.text == "" || passtext.text == "") {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text("Any field must not be empty")));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content:
+                                      Text("Any field must not be empty")));
                         } else {
                           User? result = await AuthServices()
                               .login(emailtext.text, passtext.text, context);
@@ -301,7 +331,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: ((context) => HomePage())));
+                                    builder: ((context) => const HomePage())));
                           }
                           setState(() {
                             isLoad = false;
@@ -309,10 +339,10 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                         }
                       },
                       child: isLoad
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               strokeWidth: 3,
                             )
-                          : Text(
+                          : const Text(
                               "Login",
                               style:
                                   TextStyle(color: Colors.black, fontSize: 15),

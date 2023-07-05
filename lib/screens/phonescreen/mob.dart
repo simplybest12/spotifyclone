@@ -8,6 +8,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:music_app/constants/Pallete.dart';
 import 'package:pinput/pinput.dart';
 
+// ignore: must_be_immutable
 class MobileNumber extends StatefulWidget {
   MobileNumber({super.key});
   String verify = "";

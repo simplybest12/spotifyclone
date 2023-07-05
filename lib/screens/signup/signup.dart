@@ -37,7 +37,7 @@ class _SignUpState extends State<SignUp> {
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -46,16 +46,19 @@ class _SignUpState extends State<SignUp> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 30),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Icon(
                       Icons.mail,
                       color: Colors.white,
                     ),
+                           SizedBox(width: 30,),
                     SocialLoginButton(
                         textColor: Colors.white,
                         borderRadius: 32,
                         backgroundColor: Colors.transparent,
                         text: "Sign up with email",
+                        
                         buttonType: SocialLoginButtonType.generalLogin,
                         onPressed: () {
                           Navigator.pushNamed(context, 'emailsignup');
@@ -69,7 +72,7 @@ class _SignUpState extends State<SignUp> {
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -104,7 +107,7 @@ class _SignUpState extends State<SignUp> {
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.white,
@@ -112,7 +115,7 @@ class _SignUpState extends State<SignUp> {
                   borderRadius: BorderRadius.circular(32)),
               child: SocialLoginButton(
                   height: 48,
-                  width: 290,
+                  width: 350,
                   textColor: Colors.white,
                   borderRadius: 32,
                   text: "Sign up with Google",
@@ -140,15 +143,17 @@ class _SignUpState extends State<SignUp> {
             ),
             Container(
               height: 48,
-              width: 290,
+              width: 350,
               decoration: BoxDecoration(
+                color: Pallete.spotifygreen,
                   border: Border.all(
                     color: Colors.white,
                   ),
                   borderRadius: BorderRadius.circular(32)),
               child: SocialLoginButton(
                   height: 48,
-                  width: 290,
+                  width: 350,
+                  textColor: Colors.black,
                   text: "Sign up with facebook",
                   borderRadius: 32,
                   backgroundColor: Pallete.spotifygreen,

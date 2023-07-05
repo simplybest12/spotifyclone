@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      initialRoute: "splash",
+      initialRoute: "home",
       routes: {
         'splash' :(context) =>SplashScreen(),
         'welcome' :(context) =>WelcomeScreen() ,
